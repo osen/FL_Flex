@@ -17,10 +17,13 @@ struct Fl_Flex : public Fl_Group
 
   void setSize(Fl_Widget* w, int size);
 
+  static void setDebug(bool val) { _debug = val; }
+
 private:
   //const size_t margin = 5;
   const size_t margin = 0;
   const size_t pad = 5;
+  static bool _debug;
 
   int direction;
   std::vector<Fl_Widget*> setsized;
