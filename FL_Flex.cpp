@@ -2,6 +2,8 @@
 
 #include <FL/Fl.H>
 
+bool Fl_Flex::_debug = false;
+
 Fl_Flex::Fl_Flex(int direction) : Fl_Group(0, 0, 0, 0, 0),
   direction(direction) { debug(); }
 
@@ -14,7 +16,8 @@ Fl_Flex::Fl_Flex(int x, int y, int w, int h, int direction) : Fl_Group(x, y, w, 
 void Fl_Flex::debug()
 {
   // Color the rows and columns to help facilitate development.
-  return;
+  if (!_debug)
+    return;
 
   if(direction == ROW)
   {
