@@ -1,31 +1,37 @@
-#include <FL/Fl.H>
 #include <FL/Fl_Group.H>
-
+#include <FL/fl_types.h>
 #include <vector>
 
 struct Fl_Flex : public Fl_Group
 {
-  static const int ROW = 0;
-  static const int COLUMN = 1;
+  static const uchar ROW = 0;
+  static const uchar COLUMN = 1;
 
-  Fl_Flex(int direction);
-  Fl_Flex(int w, int h, int direction);
-  Fl_Flex(int x, int y, int w, int h, int direction);
+  Fl_Flex(uchar direction);
+  Fl_Flex(int w, int h, uchar direction);
+  Fl_Flex(int x, int y, int w, int h, uchar direction);
+  Fl_Flex(int x, int y, int w, int h, const char *label = nullptr);
 
   virtual void end();
   virtual void resize(int x, int y, int w, int h);
 
   void setSize(Fl_Widget* w, int size);
 
+  void margin(int m) { _margin = m; }
+
+  int margin() const { return _margin; }
+
+  void pad(int p) { _pad = p; }
+
+  int pad() const { return _pad; }
+
   static void setDebug(bool val) { _debug = val; }
 
 private:
-  //const size_t margin = 5;
-  const size_t margin = 0;
-  const size_t pad = 5;
+  int _margin = 0;
+  int _pad = 5;
   static bool _debug;
 
-  int direction;
   std::vector<Fl_Widget*> setsized;
 
   void debug();
