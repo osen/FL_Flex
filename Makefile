@@ -1,5 +1,5 @@
-CXXFLAGS=-I/usr/local/include -I/usr/X11R6/include
-LDFLAGS=-L/usr/local/lib -lfltk
+CXXFLAGS=`fltk-config --cxxflags`
+LDFLAGS=`fltk-config --ldflags`
 
 LSRC= \
   login.cpp \

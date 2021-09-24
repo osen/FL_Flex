@@ -18,7 +18,7 @@ Fl_Button* createButton(const char* caption)
   return rtn;
 }
 
-Fl_Flex* createMeddle()
+Fl_Flex* createMiddle()
 {
   Fl_Flex* row = new Fl_Flex(Fl_Flex::ROW);
   {
@@ -67,7 +67,7 @@ int main(int argc, char **argv) {
         row->resizable(box);
         row->end();
       }
-      col->setSize(createMeddle(), 30);
+      col->setSize(createMiddle(), 30);
       Fl_Button *ub1 = createButton("Something1");
       row = new Fl_Flex(Fl_Flex::ROW);
       {
